@@ -58,6 +58,7 @@ button:focus {
   bottom: -300px;
   background: rgb(255, 209, 141);
   z-index: -1;
+  box-shadow: -14px -5px 20px grey;
 }
 
 .bv-2 {
