@@ -23,11 +23,11 @@ export default function App() {
   useEffect(_ => {
     // didMount
     // setItems([...items, JSON.stringify(localStorage.data)]);
-    console.log(localStorage.getItem('data'));
+    // console.log(localStorage.getItem('data'));
   });
   useEffect(
     _ => {
-      localStorage.setItem('data', JSON.stringify(items));
+      // localStorage.setItem('data', JSON.stringify(items));
     },
     [items]
   );
