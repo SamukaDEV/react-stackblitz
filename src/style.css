@@ -52,11 +52,22 @@ button:focus {
   position: absolute;
   height: 400px;
   width: 500px;
-  transform: rotate(-50deg);
-  right: 0px;
+  transform: rotate(-70deg);
+  right: -100px;
   bottom: -300px;
   background: crimson;
   z-index: -1;
+}
+
+.bv-2 {
+  position: absolute;
+  height: 400px;
+  width: 500px;
+  transform: rotate(-68deg);
+  right: -100px;
+  bottom: -300px;
+  background: rgb(18, 177, 116);
+  z-index: -2;
 }
 /* SCROLL */
 /* width */

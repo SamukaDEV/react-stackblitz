@@ -84,6 +84,7 @@ export default function App() {
         Github SamukaDEV
       </a>
       <div className="bv-1" />
+      <div className="bv-2" />
     </div>
   );
 }
