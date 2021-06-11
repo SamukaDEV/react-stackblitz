@@ -51,9 +51,13 @@ export default function App() {
         </button>
       </div>
       <div className="todos-list">
-        <p className="text-center fst-italic text-muted">
-          Todo's list is empty
-        </p>
+        {items.length <= 0 ? (
+          <p className="text-center fst-italic text-muted">
+            Todo's list is empty
+          </p>
+        ) : (
+          ''
+        )}
         {items.map((item, item_idx) => (
           <div className="card mb-2" key={item_idx}>
             <div className="card-body">
