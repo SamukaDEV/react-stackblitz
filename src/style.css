@@ -25,6 +25,7 @@ button:focus {
 .main-container {
   max-width: 500px;
   position: relative;
+  height: 100vh;
 }
 
 .btn-save {
@@ -44,7 +45,7 @@ button:focus {
   margin-top: 15px;
   overflow: hidden;
   overflow-y: auto;
-  height: 78vh;
+  height: 68vh;
   padding-right: 10px;
 }
 
