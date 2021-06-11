@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-// import TodoCard from './TodoCard';
+import TodoCard from './TodoCard';
 import './style.css';
 
 const themes = {
@@ -13,24 +13,7 @@ const themes = {
   }
 };
 
-const ThemeContext = React.createContext(themes.light);
-
-function TodoCard(props) {
-  const theme = useContext(ThemeContext);
-  return (
-    <div className="card mb-2">
-      <div className="card-body">
-        <i
-          className="bi bi-trash text-danger remove-button"
-          onClick={() => {
-            props.removeItem(item);
-          }}
-        />
-        {props.value}
-      </div>
-    </div>
-  );
-}
+export const ThemeContext = React.createContext(themes.light);
 
 export default function App() {
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
@@ -102,6 +85,7 @@ export default function App() {
             <TodoCard
               key={item_idx}
               value={item.value}
+              context={ThemeContext}
               removeItem={() => {
                 removeItem(item);
               }}
