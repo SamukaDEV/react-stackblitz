@@ -59,7 +59,7 @@ function App() {
     // localStorage.setItem('data', JSON.stringify(items));
   }, [items]);
   return (
-    <ThemeContext.Provider value={themes.dark}>
+    <div>
       <div className="container main-container">
         <h1>TODO List</h1>
         <p className="text-muted">Manage your todos list</p>
@@ -110,7 +110,7 @@ function App() {
         <div className="bv-1" />
         <div className="bv-2" />
       </div>
-    </ThemeContext.Provider>
+    </div>
   );
 }
 export default App;
