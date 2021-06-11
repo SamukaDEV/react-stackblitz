@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TodoCard from './TodoCard';
 import './style.css';
 
 export default function App() {
@@ -24,6 +25,17 @@ export default function App() {
       addItem();
     }
   };
+  const noItems = () => {
+    if (items.length <= 0) {
+      return (
+        <p className="text-center fst-italic text-muted">
+          Todo's list is empty
+        </p>
+      );
+    } else {
+      return '';
+    }
+  };
   useEffect(() => {
     // didMount
     // setItems([...items, JSON.stringify(localStorage.data)]);
@@ -36,7 +48,7 @@ export default function App() {
   return (
     <div className="container main-container">
       <h1>TODO List</h1>
-      <p className="text-muted">SamukaDEV was here</p>
+      <p className="text-muted">Manage your todos list</p>
       <div className="btn-group w-100">
         <input
           type="text"
@@ -51,31 +63,25 @@ export default function App() {
         </button>
       </div>
       <div className="todos-list">
-        {items.length <= 0 ? (
-          <p className="text-center fst-italic text-muted">
-            Todo's list is empty
-          </p>
-        ) : (
-          ''
-        )}
+        {noItems()}
         {items.map((item, item_idx) => (
-          <div className="card mb-2" key={item_idx}>
-            <div className="card-body">
-              <i
-                className="bi bi-trash text-danger remove-button"
-                onClick={() => {
-                  removeItem(item);
-                }}
-              />
-              {item.value}
-            </div>
-          </div>
+          <TodoCard key={item_idx} value={item.value} />
         ))}
       </div>
 
       <button className="btn-save btn btn-default btn-sm border rounded">
         <i className="bi bi-share" />
       </button>
+      <a
+        href="https://github.com/SamukaDEV"
+        style={{
+          position: 'absolute',
+          left: 10,
+          bottom: 0
+        }}
+      >
+        Github SamukaDEV
+      </a>
     </div>
   );
 }
