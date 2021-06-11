@@ -6,7 +6,7 @@ export default function TodoCard(props) {
         <i
           className="bi bi-trash text-danger remove-button"
           onClick={() => {
-            removeItem(item);
+            props.removeItem(item);
           }}
         />
         {props.value}

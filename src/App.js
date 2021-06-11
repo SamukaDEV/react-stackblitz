@@ -65,7 +65,13 @@ export default function App() {
       <div className="todos-list">
         {noItems()}
         {items.map((item, item_idx) => (
-          <TodoCard key={item_idx} value={item.value} />
+          <TodoCard
+            key={item_idx}
+            value={item.value}
+            removeItem={() => {
+              removeItem(item);
+            }}
+          />
         ))}
       </div>
 
