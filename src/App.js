@@ -5,22 +5,20 @@ import './style.css';
 
 function App() {
   const { todos, setTodos } = useContext(AppContext);
-
-  const [items, setItems] = useState(savedTodos || []);
   const [todoText, setTodoText] = useState('');
   const addItem = () => {
     if (todoText.length <= 0) return false;
-    setItems([
-      ...items,
+    setTodos([
+      ...todos,
       {
-        id: items.length,
+        id: todos.length,
         value: todoText //Math.floor(Math.random() * 10) + 1
       }
     ]);
     setTodoText('');
   };
   const removeItem = item => {
-    setItems(items.filter(i => i !== item));
+    setTodos(todos.filter(i => i !== item));
   };
   const inputKeyDown = e => {
     if (e.key == 'Enter') {
@@ -28,7 +26,7 @@ function App() {
     }
   };
   const noItems = () => {
-    if (items.length <= 0) {
+    if (todos.length <= 0) {
       return (
         <p className="text-center fst-italic text-muted">
           Todo's list is empty
@@ -42,11 +40,11 @@ function App() {
     // didMount
     // setItems([...items, JSON.stringify(localStorage.data)]);
     // console.log(localStorage.getItem('data'));
-    localStorage.setItem('todos', JSON.stringify(items));
+    localStorage.setItem('todos', JSON.stringify(todos));
   });
   useEffect(() => {
     // localStorage.setItem('data', JSON.stringify(items));
-  }, [items]);
+  }, [todos]);
   return (
     <div>
       <div className="container main-container">
@@ -70,12 +68,12 @@ function App() {
         </div>
         <div className="todos-list">
           {noItems()}
-          {items.map((item, item_idx) => (
+          {todos.map((todo, todo_idx) => (
             <TodoCard
-              key={item_idx}
-              value={item.value}
+              key={todo_idx}
+              value={todo.value}
               removeItem={() => {
-                removeItem(item);
+                removeItem(todo);
               }}
             />
           ))}
