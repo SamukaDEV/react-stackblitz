@@ -16,6 +16,9 @@ export default function App() {
     ]);
     setTodoText('');
   };
+  const removeItem = item => {
+    setItems(items.filter(i => i !== item));
+  };
   const inputKeyDown = e => {
     if (e.key == 'Enter') {
       addItem();
@@ -51,8 +54,13 @@ export default function App() {
         {items.map((item, item_idx) => (
           <div className="card mb-2" key={item_idx}>
             <div className="card-body">
-              <i className="bi bi-trash text-danger remove-button" />
-              {item.id} - {item.value}
+              <i
+                className="bi bi-trash text-danger remove-button"
+                onClick={() => {
+                  removeItem(item);
+                }}
+              />
+              {item.value}
             </div>
           </div>
         ))}
