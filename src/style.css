@@ -1,0 +1,27 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css');
+
+* {
+  outline: none;
+}
+
+input {
+  box-shadow: none !important;
+}
+
+button:focus {
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 6%);
+}
+
+.add-button {
+  min-width: 120px;
+}
+
+.main-container {
+  max-width: 500px;
+}
+
+.btn-save {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
