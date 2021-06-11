@@ -42,15 +42,18 @@ export default function App() {
           type="text"
           className="form-control form-control-sm"
           onChange={el => setTodoText(el.target.value)}
-          placeholder="Todo item"
+          placeholder="Type here..."
           value={todoText}
           onKeyDown={e => inputKeyDown(e)}
         />
         <button className="btn btn-success btn-sm add-button" onClick={addItem}>
-          Add Item
+          Add
         </button>
       </div>
       <div className="todos-list">
+        <p className="text-center fst-italic text-muted">
+          Todo's list is empty
+        </p>
         {items.map((item, item_idx) => (
           <div className="card mb-2" key={item_idx}>
             <div className="card-body">
