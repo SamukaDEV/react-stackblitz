@@ -15,7 +15,7 @@ const themes = {
 
 export const ThemeContext = React.createContext(themes.light);
 
-export default function App() {
+function App() {
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
   const [items, setItems] = useState(savedTodos || []);
   const [todoText, setTodoText] = useState('');
@@ -113,3 +113,4 @@ export default function App() {
     </ThemeContext.Provider>
   );
 }
+export default App;
