@@ -4,6 +4,12 @@
   outline: none;
 }
 
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
 input {
   box-shadow: none !important;
 }
@@ -42,6 +48,16 @@ button:focus {
   padding-right: 10px;
 }
 
+.bv-1 {
+  position: sticky;
+  height: 400px;
+  width: 500px;
+  transform: rotate(-50deg);
+  right: 0px;
+  bottom: -300px;
+  background: crimson;
+  z-index: -1;
+}
 /* SCROLL */
 /* width */
 ::-webkit-scrollbar {

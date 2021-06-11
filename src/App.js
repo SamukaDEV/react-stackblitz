@@ -77,12 +77,13 @@ export default function App() {
         style={{
           position: 'absolute',
           left: 10,
-          bottom: 0
+          bottom: 20
         }}
         target="blank"
       >
         Github SamukaDEV
       </a>
+      <div className="bv-1" />
     </div>
   );
 }
