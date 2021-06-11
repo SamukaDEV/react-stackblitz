@@ -63,11 +63,11 @@ button:focus {
   position: absolute;
   height: 400px;
   width: 500px;
-  transform: rotate(-68deg);
-  right: -100px;
-  bottom: -300px;
+  transform: rotate(-66deg);
+  right: -120px;
+  bottom: -290px;
   background: rgb(18, 177, 116);
-  z-index: -2;
+  z-index: -1;
 }
 /* SCROLL */
 /* width */
