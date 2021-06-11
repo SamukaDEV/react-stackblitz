@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
+import AppContext from './context';
 import TodoCard from './TodoCard';
 import './style.css';
 
 function App() {
-  const savedTodos = JSON.parse(localStorage.getItem('todos'));
+  const { todos, setTodos } = useContext(AppContext);
+
   const [items, setItems] = useState(savedTodos || []);
   const [todoText, setTodoText] = useState('');
   const addItem = () => {
