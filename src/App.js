@@ -47,14 +47,16 @@ export default function App() {
           Add Item
         </button>
       </div>
-      {items.map((item, item_idx) => (
-        <div className="card mt-2" key={item_idx}>
-          <div className="card-body">
-            <i className="bi bi-trash text-danger remove-button" />
-            {item.id} - {item.value}
+      <div className="todos-list">
+        {items.map((item, item_idx) => (
+          <div className="card mb-2" key={item_idx}>
+            <div className="card-body">
+              <i className="bi bi-trash text-danger remove-button" />
+              {item.id} - {item.value}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
       <button className="btn-save btn btn-default btn-sm border rounded">
         <i className="bi bi-share" />
