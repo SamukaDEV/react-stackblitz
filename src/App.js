@@ -2,19 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import TodoCard from './TodoCard';
 import './style.css';
 
-const themes = {
-  light: {
-    foreground: 'black',
-    background: 'white'
-  },
-  dark: {
-    foreground: 'white',
-    background: 'rgb(40, 44, 52)'
-  }
-};
-
-export const ThemeContext = React.createContext(themes.light);
-
 function App() {
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
   const [items, setItems] = useState(savedTodos || []);
