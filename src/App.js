@@ -50,6 +50,7 @@ export default function App() {
       {items.map((item, item_idx) => (
         <div className="card mt-2" key={item_idx}>
           <div className="card-body">
+            <i className="bi bi-trash text-danger remove-button" />
             {item.id} - {item.value}
           </div>
         </div>
