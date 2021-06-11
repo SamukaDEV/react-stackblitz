@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 
 export default function App() {
-  const [items, setItems] = useState([]);
+  const savedTodos = JSON.parse(localStorage.getItem('todos'));
+  const [items, setItems] = useState(savedTodos || []);
   const [todoText, setTodoText] = useState('');
   const addItem = () => {
     if (todoText.length <= 0) return false;
@@ -20,17 +21,15 @@ export default function App() {
       addItem();
     }
   };
-  useEffect(_ => {
+  useEffect(() => {
     // didMount
     // setItems([...items, JSON.stringify(localStorage.data)]);
     // console.log(localStorage.getItem('data'));
+    localStorage.setItem('todos', JSON.stringify(items));
   });
-  useEffect(
-    _ => {
-      // localStorage.setItem('data', JSON.stringify(items));
-    },
-    [items]
-  );
+  useEffect(() => {
+    // localStorage.setItem('data', JSON.stringify(items));
+  }, [items]);
   return (
     <div className="container main-container">
       <h1>TODO List</h1>
