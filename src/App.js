@@ -72,7 +72,6 @@ function App() {
             <TodoCard
               key={item_idx}
               value={item.value}
-              context={ThemeContext}
               removeItem={() => {
                 removeItem(item);
               }}
