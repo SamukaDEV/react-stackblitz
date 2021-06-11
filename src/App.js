@@ -1,6 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import TodoCard from './TodoCard';
+import React, { useState, useEffect, useContext } from 'react';
+// import TodoCard from './TodoCard';
 import './style.css';
+
+const themes = {
+  light: {
+    foreground: 'black',
+    background: 'white'
+  },
+  dark: {
+    foreground: 'white',
+    background: 'rgb(40, 44, 52)'
+  }
+};
+
+const ThemeContext = React.createContext(themes.light);
+
+function TodoCard(props) {
+  const theme = useContext(ThemeContext);
+  return (
+    <div className="card mb-2">
+      <div className="card-body">
+        <i
+          className="bi bi-trash text-danger remove-button"
+          onClick={() => {
+            props.removeItem(item);
+          }}
+        />
+        {props.value}
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
@@ -46,51 +76,56 @@ export default function App() {
     // localStorage.setItem('data', JSON.stringify(items));
   }, [items]);
   return (
-    <div className="container main-container">
-      <h1>TODO List</h1>
-      <p className="text-muted">Manage your todos list</p>
-      <div className="btn-group w-100">
-        <input
-          type="text"
-          className="form-control form-control-sm"
-          onChange={el => setTodoText(el.target.value)}
-          placeholder="Type here..."
-          value={todoText}
-          onKeyDown={e => inputKeyDown(e)}
-        />
-        <button className="btn btn-success btn-sm add-button" onClick={addItem}>
-          Add
-        </button>
-      </div>
-      <div className="todos-list">
-        {noItems()}
-        {items.map((item, item_idx) => (
-          <TodoCard
-            key={item_idx}
-            value={item.value}
-            removeItem={() => {
-              removeItem(item);
-            }}
+    <ThemeContext.Provider value={themes.dark}>
+      <div className="container main-container">
+        <h1>TODO List</h1>
+        <p className="text-muted">Manage your todos list</p>
+        <div className="btn-group w-100">
+          <input
+            type="text"
+            className="form-control form-control-sm"
+            onChange={el => setTodoText(el.target.value)}
+            placeholder="Type here..."
+            value={todoText}
+            onKeyDown={e => inputKeyDown(e)}
           />
-        ))}
-      </div>
+          <button
+            className="btn btn-success btn-sm add-button"
+            onClick={addItem}
+          >
+            Add
+          </button>
+        </div>
+        <div className="todos-list">
+          {noItems()}
+          {items.map((item, item_idx) => (
+            <TodoCard
+              key={item_idx}
+              value={item.value}
+              removeItem={() => {
+                removeItem(item);
+              }}
+            />
+          ))}
+        </div>
 
-      <button className="btn-save btn btn-default btn-sm border rounded">
-        <i className="bi bi-share" />
-      </button>
-      <a
-        href="https://github.com/SamukaDEV"
-        style={{
-          position: 'absolute',
-          left: 10,
-          bottom: 20
-        }}
-        target="blank"
-      >
-        Github SamukaDEV
-      </a>
-      <div className="bv-1" />
-      <div className="bv-2" />
-    </div>
+        <button className="btn-save btn btn-default btn-sm border rounded">
+          <i className="bi bi-share" />
+        </button>
+        <a
+          href="https://github.com/SamukaDEV"
+          style={{
+            position: 'absolute',
+            left: 10,
+            bottom: 20
+          }}
+          target="blank"
+        >
+          Github SamukaDEV
+        </a>
+        <div className="bv-1" />
+        <div className="bv-2" />
+      </div>
+    </ThemeContext.Provider>
   );
 }

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 export default function TodoCard(props) {
+  const theme = useContext(ThemeContext);
   return (
     <div className="card mb-2">
       <div className="card-body">
