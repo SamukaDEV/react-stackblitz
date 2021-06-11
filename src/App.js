@@ -17,9 +17,6 @@ function App() {
     ]);
     setTodoText('');
   };
-  const removeItem = item => {
-    setTodos(todos.filter(i => i !== item));
-  };
   const inputKeyDown = e => {
     if (e.key == 'Enter') {
       addItem();
@@ -69,13 +66,7 @@ function App() {
         <div className="todos-list">
           {noItems()}
           {todos.map((todo, todo_idx) => (
-            <TodoCard
-              key={todo_idx}
-              value={todo.value}
-              removeItem={() => {
-                removeItem(todo);
-              }}
-            />
+            <TodoCard key={todo_idx} id={todo.id} value={todo.value} />
           ))}
         </div>
 
