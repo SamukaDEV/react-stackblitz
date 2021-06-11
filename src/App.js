@@ -33,15 +33,6 @@ function App() {
       return '';
     }
   };
-  useEffect(() => {
-    // didMount
-    // setItems([...items, JSON.stringify(localStorage.data)]);
-    // console.log(localStorage.getItem('data'));
-    localStorage.setItem('todos', JSON.stringify(todos));
-  });
-  useEffect(() => {
-    // localStorage.setItem('data', JSON.stringify(items));
-  }, [todos]);
   return (
     <div>
       <div className="container main-container">

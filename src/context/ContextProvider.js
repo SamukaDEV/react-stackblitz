@@ -6,8 +6,8 @@ const ContextProvider = ({ children }) => {
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
   const [todos, setTodos] = useState(savedTodos || []);
   useEffect(() => {
-    // setTodos(savedTodos || []);
-  }, []);
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
   const context = {
     currentUser,
     setCurrentUser,
