@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 
 export default function App() {
   const [items, setItems] = useState([]);
   const [todoText, setTodoText] = useState('');
   const addItem = () => {
+    if (todoText.length <= 0) return false;
     setItems([
       ...items,
       {
@@ -19,6 +20,17 @@ export default function App() {
       addItem();
     }
   };
+  useEffect(_ => {
+    // didMount
+    // setItems([...items, JSON.stringify(localStorage.data)]);
+    console.log(localStorage.getItem('data'));
+  });
+  useEffect(
+    _ => {
+      localStorage.setItem('data', JSON.stringify(items));
+    },
+    [items]
+  );
   return (
     <div className="container main-container">
       <h1>TODO List</h1>
@@ -44,36 +56,8 @@ export default function App() {
         </div>
       ))}
 
-      <div class="dropdown">
-        <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Dropdown button
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </li>
-        </ul>
-      </div>
-      <button className="btn-save btn btn-default btn-sm">
-        <i className="bi bi-three-dots-vertical" />
+      <button className="btn-save btn btn-default btn-sm border rounded">
+        <i className="bi bi-share" />
       </button>
     </div>
   );
