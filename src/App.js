@@ -79,6 +79,7 @@ export default function App() {
           left: 10,
           bottom: 0
         }}
+        about="blank"
       >
         Github SamukaDEV
       </a>
