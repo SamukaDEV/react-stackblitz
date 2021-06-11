@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppContext from '.';
 const ContextProvider = ({ children }) => {
   // Set every item of app context here
   const [currentUser, setCurrentUser] = useState({});
-  const [todos, setTodos] = useState([]);
   const savedTodos = JSON.parse(localStorage.getItem('todos'));
-
+  const [todos, setTodos] = useState(savedTodos || []);
+  useEffect(() => {
+    // setTodos(savedTodos || []);
+  }, []);
   const context = {
     currentUser,
     setCurrentUser,

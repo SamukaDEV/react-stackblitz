@@ -36,7 +36,7 @@ button:focus {
 
 .remove-button {
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 5px;
   cursor: pointer;
 }
